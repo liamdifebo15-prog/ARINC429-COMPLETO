@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Envíos ARINC 429</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand-mark">A<span>429</span></div>
+      <div><p class="eyebrow">CENTRO DE CONTROL · LABORATORIO</p><h1>Envíos de instrumentos</h1></div>
+      <div class="connection"><span class="pulse"></span> Salidas seguras · simuladas</div>
+    </header>
+    <section class="intro">
+      <div><p class="eyebrow">TRANSMISIÓN DE DATOS</p><h2>Crear un envío</h2><p class="muted">Selecciona un instrumento y registra el valor que se enviará.</p></div>
+      <div class="signal-icon" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    </section>
+    <section class="panel form-panel">
+      <form id="envio-form">
+        <label>Instrumento<select id="instrumento" required><option value="">Cargando instrumentos…</option></select></label>
+        <label>Valor a enviar<div class="value-input"><input id="valor" type="number" step="any" required placeholder="0.00"><span id="unidad">—</span></div><small id="rango">Elige un instrumento para ver el rango permitido.</small></label>
+        <button class="primary" type="submit"><span>＋</span> Crear envío</button>
+      </form>
+      <div id="notice" class="notice" role="status" hidden></div>
+    </section>
+    <section class="section-heading"><div><p class="eyebrow">REGISTRO</p><h2>Historial de envíos</h2></div><button id="refresh" class="secondary" type="button">↻ Actualizar</button></section>
+    <section class="panel table-panel">
+      <div class="table-scroll"><table><thead><tr><th>ID / FECHA</th><th>INSTRUMENTO</th><th>VALOR</th><th>PALABRA ARINC · HEX</th><th>SALIDAS</th><th>ACCIONES</th></tr></thead><tbody id="envios"><tr><td colspan="6" class="empty">Cargando historial…</td></tr></tbody></table></div>
+    </section>
+    <footer><span>ARINC 429 · BNR de ejemplo</span><span>La salida de hardware está deshabilitada por defecto.</span></footer>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
